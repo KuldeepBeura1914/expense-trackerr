@@ -30,10 +30,11 @@ const SideMenu = ({ activeMenu }) => {
       <div className="flex flex-col items-center justify-center gap-3 mt-3 mb-7">
         {user?.profileImageUrl ? (
           <img
-            src={user?.profileImageUrl || ""}
-            alt="Profile Image"
-            className="w-20 h-20 bg-slate-400 rounded-full transition-all duration-500 ease-in-out transform hover:scale-105 hover:ring-4 hover:ring-blue-400 shadow-md"
-          />
+  src={user?.profileImageUrl || ""}
+  alt="Profile Image"
+  className="w-20 h-20 bg-slate-400 rounded-full transition-all duration-500 ease-in-out transform hover:scale-105 hover:ring-4 hover:ring-blue-400 shadow-md"
+/>
+
         ) : (
           <CharAvatar
             fullName={user?.fullName}
