@@ -10,30 +10,30 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 
 const app = express();
 
-//  Updated CORS setup
+//  Updated CORS config
 app.use(
   cors({
     origin: [
-      "http://localhost:5173", // dev frontend
-      "https://your-vercel-app.vercel.app", // vercel URL
-      "https://your-netlify-app.netlify.app" // netlify URL
+      "http://localhost:5173",
+      "https://xpense-trackk.netlify.app",
+      "https://track-expenses-two.vercel.app"
     ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
 
 app.use(express.json());
 
-//  Connect to MongoDB
 connectDB();
 
-//  API Routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/income", incomeRoutes);
 app.use("/api/v1/expense", expenseRoutes);
 app.use("/api/v1/dashboard", dashboardRoutes);
 
-//  Static folder to serve profile images
+//  Serve /uploads statically
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const PORT = process.env.PORT || 5000;
